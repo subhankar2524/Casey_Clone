@@ -18,8 +18,7 @@
 }
 .app-itesm-ans{ 
     position: sticky;
-    bottom: 0; 
-    width: 100%;
+    bottom: 0;
     height: 50px;
     padding: 1rem 1rem;
     box-sizing: content-box;
@@ -29,5 +28,4 @@
     background-color: white;
     z-index: 10000;
     box-shadow: 0px -2px 5px 0px #888888;
-
 }

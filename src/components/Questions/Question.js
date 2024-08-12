@@ -39,12 +39,7 @@ function Question({ question, onAns, answers, sendToParent }) {
       case "single-answer":
         return (
           <div className='input-section-wrapper'>
-            {/* <input type='text' className='single-ans-input' placeholder='Enter Text' /> */}
-            <textarea
-              className='single-ans-input'
-              placeholder='Enter Text'
-              rows='1' // Initial height, can be adjusted as needed
-            />
+            <input type='text' className='single-ans-input' placeholder='Enter Text' />
             <button className='input-submit-button' onClick={() => onAns(document.querySelector('.single-ans-input').value)} ><TelegramIcon /></button>
           </div>
         )
