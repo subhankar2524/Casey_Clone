@@ -1,0 +1,39 @@
+.question-wrapper{ 
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: 95%;
+    background-color: grey;
+}
+
+.ans-wrapper{ 
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-ans-input{ 
+    width: 90%;
+    height: 100%;
+    padding: 1rem 1rem;
+}
+.single-ans-input:focus{ 
+    outline: none;
+}
+.input-submit-button{ 
+    width: 10%;
+    height: 100%;
+}
+
+.input-section-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
