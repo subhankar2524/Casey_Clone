@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Question from './components/Questions/Question';
+import "./App.css"
 
 // static qs data
 import { QUESTIONS } from './util/questions';
@@ -9,6 +10,9 @@ function App() {
   // state for checking the question index
   const [currentQuestionIndex, setCurrectQuestionIndex] = useState(0);
   const [allDone, setAllDone] = useState(false);
+
+  // state management for render function handle
+  const [childRenderFunction, setChildRenderFunction] = useState(null); 
 
 
   // handle ans and showing the data locally
@@ -28,10 +32,18 @@ function App() {
 
     setAnswers([...answers, { question: QUESTIONS[currentQuestionIndex], ans }])
   }
+
+
+  const handleRenderFunction = (childFunction) => { 
+    setChildRenderFunction(childFunction)
+  }
   return (
-    <div className='' style={{ width: '100vw', height: '100vh' }}>
-      <Navbar />
-      <Question question={QUESTIONS[currentQuestionIndex]} onAns={handleAns} allAnswered={allDone} answers={answers} />
+    <div className='app-wrapper'>
+      <div className='app-items-nav'><Navbar /></div>
+      <div className='app-items-questions'><Question question={QUESTIONS[currentQuestionIndex]} onAns={handleAns} allAnswered={allDone} answers={answers} sendToParent={handleRenderFunction} /></div>
+      <div className='app-itesm-ans'>
+        {childRenderFunction && childRenderFunction}
+      </div>
     </div>
   )
 }
