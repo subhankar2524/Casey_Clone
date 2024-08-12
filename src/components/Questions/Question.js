@@ -1,8 +1,11 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useRef } from 'react';
 import "./Question.css";
 import TelegramIcon from '@mui/icons-material/Telegram';
 
 function Question({ question, onAns, answers, sendToParent }) {
+
+  // ref for the last element
+  const lastElement = useRef(null); 
 
   // function to handle question prompts
   const renderQuestions = (question) => {
@@ -21,6 +24,13 @@ function Question({ question, onAns, answers, sendToParent }) {
 
   console.log(answers)
 
+  // handle scroll at the end of the page
+  useEffect(() =>  { 
+    if(lastElement.current){ 
+      lastElement.current.scrollTop = lastElement.current.scrollHeight; 
+    }
+  }, [answers, question])
+
 
   // function to handle question 
   const renderInputs = () => {
@@ -29,7 +39,12 @@ function Question({ question, onAns, answers, sendToParent }) {
       case "single-answer":
         return (
           <div className='input-section-wrapper'>
-            <input type='text' className='single-ans-input' placeholder='Enter Text' />
+            {/* <input type='text' className='single-ans-input' placeholder='Enter Text' /> */}
+            <textarea
+              className='single-ans-input'
+              placeholder='Enter Text'
+              rows='1' // Initial height, can be adjusted as needed
+            />
             <button className='input-submit-button' onClick={() => onAns(document.querySelector('.single-ans-input').value)} ><TelegramIcon /></button>
           </div>
         )
@@ -43,12 +58,12 @@ function Question({ question, onAns, answers, sendToParent }) {
 
   }
 
-// sending the render inputs to the parent element
-  useEffect(() => { 
+  // sending the render inputs to the parent element
+  useEffect(() => {
     sendToParent(renderInputs)
-  }, [sendToParent]); 
+  }, [sendToParent]);
   return (
-    <div className='question-wrapper'>
+    <div className='question-wrapper' ref={lastElement}>
       {answers.map((qa, indx) => (
         <>
           {renderQuestions(qa.question)}
@@ -61,6 +76,8 @@ function Question({ question, onAns, answers, sendToParent }) {
       {/* <div className='ans-wrapper'>
         {renderInputs()}
       </div> */}
+
+      {/* <div ref={lastElement} style={{height: '0px'}}></div> */}
 
     </div>
   )
