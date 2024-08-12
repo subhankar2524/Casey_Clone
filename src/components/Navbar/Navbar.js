@@ -5,6 +5,8 @@ function Navbar() {
   return (
     <div className='nav-bar-wrapper'>
         Navbar
+
+        Progress Component
     </div>
   )
 }
