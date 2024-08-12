@@ -1,11 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "./Question.css";
 import TelegramIcon from '@mui/icons-material/Telegram';
 
 function Question({ question, onAns, answers, sendToParent }) {
 
   // ref for the last element
-  const lastElement = useRef(null); 
+  const lastElement = useRef(null);
+
+  // handling the sigle ans input value
+  const [inputValue, setInputValue] = useState('');
 
   // function to handle question prompts
   const renderQuestions = (question) => {
@@ -25,22 +28,50 @@ function Question({ question, onAns, answers, sendToParent }) {
   console.log(answers)
 
   // handle scroll at the end of the page
-  useEffect(() =>  { 
-    if(lastElement.current){ 
-      lastElement.current.scrollTop = lastElement.current.scrollHeight; 
+  useEffect(() => {
+    if (lastElement.current) {
+      lastElement.current.scrollTop = lastElement.current.scrollHeight;
     }
   }, [answers, question])
 
 
-  // function to handle question 
+  // function to handle answers
   const renderInputs = () => {
 
     switch (question.type) {
       case "single-answer":
         return (
           <div className='input-section-wrapper'>
-            <input type='text' className='single-ans-input' placeholder='Enter Text' />
-            <button className='input-submit-button' onClick={() => onAns(document.querySelector('.single-ans-input').value)} ><TelegramIcon /></button>
+            {/* <input type='text' className='single-ans-input' placeholder='Type Your ans' /> */}
+            <textarea
+              className='single-ans-input'
+              placeholder='Type your ans...'
+              rows='1' // Initial height
+              value={inputValue}
+              onChange={(e) => handleInputChange(e)}
+            />
+            <button className='input-submit-button'  >
+              {/* <TelegramIcon onClick={() => {onAns(inputValue); setInputValue('')}} sx={{fontSize: '50px'}} /> */}
+              <TelegramIcon
+                sx={{
+                  fontSize: '50px',
+                  cursor: inputValue.trim() ? 'pointer' : 'not-allowed',
+                  color: inputValue.trim() ? '#000' : '#ccc',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    color: inputValue.trim() ? 'green' : '#ccc'
+                  }
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (inputValue.trim()) {
+                    onAns(inputValue);
+                    setInputValue('');
+                  }
+                }}
+              />
+
+            </button>
           </div>
         )
       case "mcq":
@@ -57,6 +88,13 @@ function Question({ question, onAns, answers, sendToParent }) {
   useEffect(() => {
     sendToParent(renderInputs)
   }, [sendToParent]);
+
+
+
+  // function to handle the input value
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  }
   return (
     <div className='question-wrapper' ref={lastElement}>
       {answers.map((qa, indx) => (

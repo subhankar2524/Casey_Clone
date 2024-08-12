@@ -3,12 +3,14 @@
     padding: 1rem 1rem;
     position: relative;
     width: 100%;
-    height: 85%;
+    height: 80%;
     overflow-y: scroll;
 
     /* background-color: red; */
 }
-
+.question-wrapper::-webkit-scrollbar{ 
+    display: none;
+}
 .ans-wrapper{ 
     position: sticky;
     bottom: 0;
@@ -24,6 +26,10 @@
     width: 90%;
     height: 100%;
     padding: 1rem 1rem;
+    font-size: 25px;
+    resize: none;
+    border-radius: 10px;
+    border-color: rgb(202, 202, 202);
 }
 .single-ans-input:focus{ 
     outline: none;
@@ -34,10 +40,11 @@
     border: none;
     background-color: transparent;
 }
-.input-submit-button :hover{ 
+
+/* .input-submit-button :hover{ 
     color: green;
     cursor: pointer;
-}
+} */
 
 
 .input-section-wrapper{
