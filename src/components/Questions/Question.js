@@ -30,7 +30,7 @@ function Question({ question, onAns, answers, sendToParent }) {
         return (
           <div className='input-section-wrapper'>
             <input type='text' className='single-ans-input' placeholder='Enter Text' />
-            <button className='input-submit-button' onClick={() => onAns(document.querySelector('.single-ans-input').value)} ><TelegramIcon /></button>
+            <button className='input-submit-button' ><TelegramIcon onClick={() => onAns(document.querySelector('.single-ans-input').value)} /></button>
           </div>
         )
       case "mcq":
