@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import "./Navbar.css";
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import PauseIcon from '@mui/icons-material/Pause';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'; // Import PlayArrowIcon
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function Navbar() {
   const initialTime = 28 * 60 + 42; // Initial time in seconds (28:42)
@@ -56,7 +60,7 @@ function Navbar() {
   return (
     <div className='nav-bar-wrapper'>
       <div className='nav-back'>
-        <span>&larr;</span>
+        <span><ArrowBackIcon /></span>
       </div>
       <div className='nav-title'>
         Electric Motorcycles
@@ -72,11 +76,10 @@ function Navbar() {
       </div>
       <span className='progress-time'>{formatTime(time)}</span>
       <div className='nav-icons'>
-      <span className='pause-icon' onClick={togglePause}>
-        {isPaused ? '▶' : '||'}
-      </span>
-
-        <span className='reset-icon' onClick={handleReset}>&#8635;</span>
+        <span className='pause-icon' onClick={togglePause}>
+          {isPaused ? <PlayArrowIcon /> : <PauseIcon />} {/* Render PlayArrowIcon when paused */}
+        </span>
+        <span className='reset-icon' onClick={handleReset}><RestartAltIcon /></span>
       </div>
 
       {isSessionEnd && (
