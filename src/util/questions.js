@@ -23,10 +23,22 @@ export const QUESTIONS = [
         type: 'mcq',
         prompts: [
           { type: 'text', content: 'What is your favorite color?' },
-          { type: 'table', content: [['Red', 'Blue'], ['Green', 'Yellow']] },
+          { type: 'table', 
+            content: { 
+              th: ['Jan', 'Feb', 'Mar', 'Aprl', 'May', 'Jun', 'Jul','Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+          } },
         ],
         options: ['pink', 'violet', 'red', 'green']
       },
-    // Add more questions as needed
+      {
+        id: 4,
+        type: 'mcq-multi',
+        prompts: [
+          { type: 'text', content: 'Select Any Three Months' },
+          { type: 'text', content: 'Select Them from the options below' },
+          { type: 'text', content: 'It is a multiple ans type question' },
+        ],
+        options: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      },
   ];
   
