@@ -49,3 +49,68 @@
 { 
     border-left-color: rgb(192, 192, 192);
 }
+
+/* Question.css */
+
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Three equal columns */
+    gap: 10px; /* Spacing between grid items */
+    margin: 10px 0; /* Margin around the grid */
+  }
+  .option-container{ 
+    max-height: 90vh;
+    min-height: 90vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 1rem 1rem;
+  }
+  .see-options-button {
+    font-size: 25px;
+    background-color: white;
+    color: rgb(167, 166, 166);
+    border: 1px solid rgb(218, 218, 218);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .see-options-button:hover {
+    background-color: rgb(195, 195, 195);
+    color: black; 
+  }
+  .ans-buttons.selected {
+    background-color: #8a8a8a;
+    color: white;
+}
+.multi-select{ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid  rgb(195, 192, 192);
+    margin: 0rem 0rem;
+}
+.option-actions{ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.option-action-button{ 
+    width: 50%;
+    padding: 1rem 1rem;
+    white-space: nowrap;
+    font-size: 20px;
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.option-action-button:hover{ 
+    background-color: #c8c8c8;
+}

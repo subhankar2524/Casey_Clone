@@ -116,29 +116,14 @@
     overflow: hidden;
 }
 
-.ans-buttons.selected {
-    background-color: #0078D7;
-    color: white;
-}
+
 
 .input-submit-button:disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
 
-.see-options-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .see-options-button:hover {
-    background-color: #0056b3;
-  }
+
   
  
   

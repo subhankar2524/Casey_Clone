@@ -25,7 +25,8 @@ export const QUESTIONS = [
           { type: 'text', content: 'What is your favorite color?' },
           { type: 'table', 
             content: { 
-              th: ['Jan', 'Feb', 'Mar', 'Aprl', 'May', 'Jun', 'Jul','Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+              th: ['Jan', 'Feb', 'Mar', 'Aprl', 'May', 'Jun', 'Jul','Aug', 'Sept', 'Oct', 'Nov', 'Dec'], 
+              td: [1,2,3,4,5,6,7,8,9,10,10,10,11,14,15,24, 45,56,12,45,89,56,34,56]
           } },
         ],
         options: ['pink', 'violet', 'red', 'green']

@@ -6,6 +6,7 @@ import Drawer from '@mui/material/Drawer';
 import TelegramIcon from '@mui/icons-material/Telegram';
 // static qs data
 import { QUESTIONS } from './util/questions';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
 function App() {
 
@@ -100,22 +101,23 @@ function App() {
           <>
             <button className='see-options-button' onClick={toggleDrawer(true)}>See Options</button>
 
-            <Drawer open={open} onClose={toggleDrawer(false)} anchor='bottom'>
-              <div className='option-container' style={{ zIndex: 1000 }}>
+            <Drawer open={open}  anchor='bottom'>
+              <div onClick={toggleDrawer(false)} style={{cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', color:'green', width: 'fit-content'}}><ExpandMoreRoundedIcon />Collapse </div>
+              <div className='option-container'  style={{ zIndex: 1000 }}>
                 <div className='option-grid'>
                   {question.options.map((option, indx) => (
                     <div
                       key={indx}
                       onClick={() => toggleOption(option)}
-                      className={`ans-buttons ${selectedOptions.includes(option) ? 'selected' : ''}`}
+                      className={`ans-buttons ${selectedOptions.includes(option) ? 'selected' : ''} multi-select`}
                     >
                       {option}
                     </div>
                   ))}
                 </div>
                 <div className='option-actions'>
-                  <button onClick={() => { handleAns(selectedOptions); setOpen(false); setSelectedOptions([]) }}>Done</button>
-                  <button onClick={() => setOpen(false)}>Cancel</button>
+                  <button onClick={() => { handleAns(selectedOptions); setOpen(false); setSelectedOptions([]) }} className='option-action-button'>Done</button>
+                  <button onClick={() => setOpen(false)} className='option-action-button'>Cancel</button>
                 </div>
               </div>
             </Drawer>
