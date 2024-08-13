@@ -137,7 +137,7 @@ function Question({ question, onAns, answers, sendToParent }) {
     switch (question.type) {
       case "single-answer":
         return (
-          <div className='input-section-wrapper'>
+          <div className='input-section-wrapper show'>
             {/* <input type='text' className='single-ans-input' placeholder='Type Your ans' /> */}
             <textarea
               className='single-ans-input'
@@ -172,16 +172,16 @@ function Question({ question, onAns, answers, sendToParent }) {
         )
       case "mcq":
         return question.options.map((option, indx) => (
-          <div>
+          <div className='show'>
             <div key={indx} onClick={() => onAns(option)} className='ans-buttons'>{option}</div>
           </div>
         ));
       case 'mcq-multi':
         return (
-          <>
+          <div className='drawer'>
         <button onClick={() => toggleDrawer(true)}>See Options</button>
           
-          <div className='mcq-multi-wrapper' style={{height: isOptionsOpen ? '80vh' : '0vh'}}>
+          <div className='mcq-multi-wrapper' >
             {question.options.map((option, indx) => (
               <div
                 key={indx}
@@ -209,7 +209,7 @@ function Question({ question, onAns, answers, sendToParent }) {
               />
             </button>
           </div>
-          </>
+          </div>
         )
 
     }

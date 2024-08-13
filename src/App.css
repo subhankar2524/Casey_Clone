@@ -12,7 +12,7 @@
 .app-items-nav{ 
     position: sticky;
     top: 0;
-    z-index: 1000; 
+    z-index: 100; 
     background-color: white;
 }
 .app-items-questions{ 
@@ -31,7 +31,7 @@
     justify-content: center;
     align-items: flex-end;
     background-color: white;
-    z-index: 10000;
+    z-index: 100;
     box-shadow: 0px -2px 5px 0px #888888;
 }
 
@@ -40,7 +40,7 @@
     height: 100%;
     border: 1px solid transparent;
     background-color: white;
-    z-index: 99999999;
+    z-index: 999;
 }
 .right{ 
     border-right-color: rgb(192, 192, 192);
