@@ -13,7 +13,6 @@ export const QUESTIONS = [
       type: 'mcq',
       prompts: [
         { type: 'text', content: 'What is your favorite color?' },
-        { type: 'table', content: [['Red', 'Blue'], ['Green', 'Yellow']] },
       ],
       options: ['Red', 'Blue', 'Green', 'Yellow']
     },
@@ -24,11 +23,6 @@ export const QUESTIONS = [
         prompts: [
           { type: 'text', content: 'Sample table data for testing' },
           { type: 'text', content: 'Choose any color from here. . .it is a mcq but a single ans question' },
-          { type: 'table', 
-            content: { 
-              th: ['Jan', 'Feb', 'Mar', 'Aprl', 'May', 'Jun', 'Jul','Aug', 'Sept', 'Oct', 'Nov', 'Dec'], 
-              td: [[1,2,3,4,5,6,7,8,9,10,10,10],[11,14,15,24, 45,56,12,45,89,56,34,56]]
-          } },
         ],
         options: ['pink', 'violet', 'red', 'green', 'blue']
       },
@@ -39,6 +33,11 @@ export const QUESTIONS = [
           { type: 'text', content: 'Select Any Three Months' },
           { type: 'text', content: 'Select Them from the options below' },
           { type: 'text', content: 'It is a multiple ans type question' },
+          { type: 'table', 
+            content: { 
+              th: ['Jan', 'Feb', 'Mar', 'Aprl', 'May', 'Jun', 'Jul','Aug', 'Sept', 'Oct', 'Nov', 'Dec'], 
+              td: [[1,2,3,4,5,6,7,8,9,10,10,10],[11,14,15,24, 45,56,12,45,89,56,34,56]]
+          } },
         ],
         options: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
       },
