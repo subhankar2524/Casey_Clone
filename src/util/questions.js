@@ -21,7 +21,6 @@ export const QUESTIONS = [
         id: 3,
         type: 'mcq',
         prompts: [
-          { type: 'text', content: 'Sample table data for testing' },
           { type: 'text', content: 'Choose any color from here. . .it is a mcq but a single ans question' },
         ],
         options: ['pink', 'violet', 'red', 'green', 'blue']

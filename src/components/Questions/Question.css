@@ -62,10 +62,11 @@
 .questions-div {
     padding: 1rem 1rem;
     width: fit-content;
+    max-width: 400px;
     height: fit-content;
     /* margin-top: 0.5rem; */
     margin-bottom: 0.5rem;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     background-color: rgb(206, 206, 206);
     border-radius: 10px;
 }
@@ -125,7 +126,7 @@
 
 /* Custom styles for the table */
 .custom-table {
-    width: 50%;
+    width: 30%;
     border-collapse: collapse;
     margin: 20px 0;
   }
