@@ -3,7 +3,7 @@ import "./Question.css";
 import TelegramIcon from '@mui/icons-material/Telegram';
 import Drawer from '@mui/material/Drawer';
 
-function Question({ question, onAns, answers, sendToParent }) {
+function Question({ question, onAns, answers, sendToParent}) {
 
   // ref for the last element
   const lastElement = useRef(null);
@@ -23,15 +23,6 @@ function Question({ question, onAns, answers, sendToParent }) {
     console.log('I am being clicked');
     setIsOptionsOpen(newOpen);
   };
-
-  // // handle table data format
-  // const renderTable = (tableContent) => {
-  //   const { th, td } = tableContent;
-
-  //   return (
-
-  //   );
-  // };
 
 
 
@@ -75,7 +66,7 @@ function Question({ question, onAns, answers, sendToParent }) {
   // consoling the answers
   console.log(answers)
 
-  // handle scroll at the end of the page
+  // handle scroll to set the viewport to last question
   useEffect(() => {
     if (lastElement.current) {
       lastElement.current.scrollTop = lastElement.current.scrollHeight;
@@ -84,11 +75,7 @@ function Question({ question, onAns, answers, sendToParent }) {
 
   console.log(isOptionsOpen)
 
-  // function to toggle the option container open / close state
-  const toggleOptionContainer = () => {
-    console.log('this is clicked');
-    setIsOptionsOpen(true);
-  }
+  
   // function to handle answers
   // const renderInputs = useCallback(() => {
   //   switch (question.type) {
@@ -165,91 +152,93 @@ function Question({ question, onAns, answers, sendToParent }) {
 
   //   }
   // }, [question, inputValue, selectedOptions, onAns, open]); 
-  const renderInputs = () => {
+  
+  
+  // const renderInputs = () => {
 
-    switch (question.type) {
-      case "single-answer":
-        return (
-          <div className='input-section-wrapper show'>
-            {/* <input type='text' className='single-ans-input' placeholder='Type Your ans' /> */}
-            <textarea
-              className='single-ans-input'
-              placeholder='Type your ans...'
-              rows='1' // Initial height
-              value={inputValue}
-              onChange={(e) => handleInputChange(e)}
-            />
-            <button className='input-submit-button'  >
-              {/* <TelegramIcon onClick={() => {onAns(inputValue); setInputValue('')}} sx={{fontSize: '50px'}} /> */}
-              <TelegramIcon
-                sx={{
-                  fontSize: '50px',
-                  cursor: inputValue.trim() ? 'pointer' : 'not-allowed',
-                  color: inputValue.trim() ? '#000' : '#ccc',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    color: inputValue.trim() ? 'green' : '#ccc'
-                  }
-                }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (inputValue.trim()) {
-                    onAns(inputValue);
-                    setInputValue('');
-                  }
-                }}
-              />
+  //   switch (question.type) {
+  //     case "single-answer":
+  //       return (
+  //         <div className='input-section-wrapper show'>
+  //           {/* <input type='text' className='single-ans-input' placeholder='Type Your ans' /> */}
+  //           <textarea
+  //             className='single-ans-input'
+  //             placeholder='Type your ans...'
+  //             rows='1' // Initial height
+  //             value={inputValue}
+  //             onChange={(e) => handleInputChange(e)}
+  //           />
+  //           <button className='input-submit-button'  >
+  //             {/* <TelegramIcon onClick={() => {onAns(inputValue); setInputValue('')}} sx={{fontSize: '50px'}} /> */}
+  //             <TelegramIcon
+  //               sx={{
+  //                 fontSize: '50px',
+  //                 cursor: inputValue.trim() ? 'pointer' : 'not-allowed',
+  //                 color: inputValue.trim() ? '#000' : '#ccc',
+  //                 transition: 'all 0.3s ease',
+  //                 '&:hover': {
+  //                   color: inputValue.trim() ? 'green' : '#ccc'
+  //                 }
+  //               }}
+  //               onClick={(e) => {
+  //                 e.preventDefault();
+  //                 if (inputValue.trim()) {
+  //                   onAns(inputValue);
+  //                   setInputValue('');
+  //                 }
+  //               }}
+  //             />
 
-            </button>
-          </div>
-        )
-      case "mcq":
-        return question.options.map((option, indx) => (
-          <div className='show'>
-            <div key={indx} onClick={() => onAns(option)} className='ans-buttons'>{option}</div>
-          </div>
-        ));
-      case 'mcq-multi':
-        return (
-          <div className='drawer'>
-            <button onClick={() => toggleDrawer(true)}>See Options</button>
+  //           </button>
+  //         </div>
+  //       )
+  //     case "mcq":
+  //       return question.options.map((option, indx) => (
+  //         <div className='show'>
+  //           <div key={indx} onClick={() => onAns(option)} className='ans-buttons'>{option}</div>
+  //         </div>
+  //       ));
+  //     case 'mcq-multi':
+  //       return (
+  //         <div className='drawer'>
+  //           <button onClick={() => toggleDrawer(true)}>See Options</button>
 
-            <div className='mcq-multi-wrapper' >
-              {question.options.map((option, indx) => (
-                <div
-                  key={indx}
-                  onClick={() => toggleOption(option)}
-                  className={`ans-buttons ${selectedOptions.includes(option) ? 'selected' : ''}`}
-                >
-                  {option}
-                </div>
-              ))}
-              <button
-                className='input-submit-button'
-                onClick={() => { onAns(selectedOptions); setSelectedOptions([]); }}
-                disabled={selectedOptions.length === 0}
-              >
-                <TelegramIcon
-                  sx={{
-                    fontSize: '50px',
-                    cursor: selectedOptions.length > 0 ? 'pointer' : 'not-allowed',
-                    color: selectedOptions.length > 0 ? '#000' : '#ccc',
-                    transition: 'color 0.3s ease',
-                    '&:hover': {
-                      color: selectedOptions.length > 0 ? 'green' : '#ccc'
-                    }
-                  }}
-                />
-              </button>
-            </div>
-          </div>
-        )
+  //           <div className='mcq-multi-wrapper' >
+  //             {question.options.map((option, indx) => (
+  //               <div
+  //                 key={indx}
+  //                 onClick={() => toggleOption(option)}
+  //                 className={`ans-buttons ${selectedOptions.includes(option) ? 'selected' : ''}`}
+  //               >
+  //                 {option}
+  //               </div>
+  //             ))}
+  //             <button
+  //               className='input-submit-button'
+  //               onClick={() => { onAns(selectedOptions); setSelectedOptions([]); }}
+  //               disabled={selectedOptions.length === 0}
+  //             >
+  //               <TelegramIcon
+  //                 sx={{
+  //                   fontSize: '50px',
+  //                   cursor: selectedOptions.length > 0 ? 'pointer' : 'not-allowed',
+  //                   color: selectedOptions.length > 0 ? '#000' : '#ccc',
+  //                   transition: 'color 0.3s ease',
+  //                   '&:hover': {
+  //                     color: selectedOptions.length > 0 ? 'green' : '#ccc'
+  //                   }
+  //                 }}
+  //               />
+  //             </button>
+  //           </div>
+  //         </div>
+  //       )
 
-    }
+  //   }
 
 
 
-  }
+  // }
 
 
 
@@ -269,24 +258,24 @@ function Question({ question, onAns, answers, sendToParent }) {
 
 
   // sending the render inputs to the parent element
-  useEffect(() => {
-    sendToParent(renderInputs)
-  }, [inputValue, question, selectedOptions]);
+  // useEffect(() => {
+  //   sendToParent(renderInputs)
+  // }, [inputValue, question, selectedOptions]);
 
 
 
   // function to handle the input value
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  }
+  // const handleInputChange = (event) => {
+  //   setInputValue(event.target.value);
+  // }
 
 
   // function to handle multiple select type questions
-  const toggleOption = (option) => {
-    setSelectedOptions((prevSelectedOption) =>
-      prevSelectedOption.includes(option) ? prevSelectedOption.filter((o) => o !== option) : [...prevSelectedOption, option]
-    )
-  }
+  // const toggleOption = (option) => {
+  //   setSelectedOptions((prevSelectedOption) =>
+  //     prevSelectedOption.includes(option) ? prevSelectedOption.filter((o) => o !== option) : [...prevSelectedOption, option]
+  //   )
+  // }
 
 
 
@@ -299,7 +288,6 @@ function Question({ question, onAns, answers, sendToParent }) {
         </>
 
       ))}
-
       {renderQuestions(question)}
       {/* <div className='ans-wrapper'>
         {renderInputs()}

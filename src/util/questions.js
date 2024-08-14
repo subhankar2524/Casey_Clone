@@ -41,5 +41,12 @@ export const QUESTIONS = [
         ],
         options: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
       },
+      {
+        id: 5,
+        type: 'end',
+        prompts: [
+          { type: 'text', content: 'Thank you for taking the survey' },
+        ],
+      },
   ];
   

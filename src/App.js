@@ -30,8 +30,9 @@ function App() {
   const handleAns = (ans) => {
     console.log(currentQuestionIndex);
     if (currentQuestionIndex >= QUESTIONS.length) {
-      return;
+      return; 
     }
+    
     if (currentQuestionIndex < QUESTIONS.length - 1) {
       setCurrectQuestionIndex(currentQuestionIndex + 1);
     }
@@ -39,7 +40,7 @@ function App() {
 
     setAnswers([...answers, { question: QUESTIONS[currentQuestionIndex], ans }])
   }
-
+  console.log(currentQuestionIndex)
 
   // const [open, setOpen] = useState(false);
 
@@ -49,7 +50,7 @@ function App() {
   };
 
 
-
+// currently not needed
   const handleRenderFunction = (childFunction) => {
     setChildRenderFunction(childFunction)
   }
@@ -126,6 +127,8 @@ function App() {
 
           </>
         );
+
+        
       default:
         return null;
     }
