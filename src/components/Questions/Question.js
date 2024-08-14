@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import "./Question.css";
 import TelegramIcon from '@mui/icons-material/Telegram';
 import Drawer from '@mui/material/Drawer';
+import { QUESTIONS } from '../../util/questions';
 
 function Question({ question, onAns, answers, sendToParent}) {
 
@@ -31,9 +32,17 @@ function Question({ question, onAns, answers, sendToParent}) {
     return question.prompts.map((prompt, indx) => {
       switch (prompt.type) {
         case 'text':
-          return (<div className='questions-div'><p key={indx}>{prompt.content}</p></div>)
+          return(
+            // <div className='questions-div'><pre key={indx}>{prompt.content}</pre></div>
+            <div className='questions-div'>
+              <h5>{question.type !== 'end' && `question ${question.id} of ${QUESTIONS.length-1}`}</h5>
+              {prompt.content.split(/\n+/).map((paragraph, index) => (
+                <p key={index}>{paragraph}<br/></p>
+              ))}
+            </div>
+          ); 
         case 'image':
-          return <img key={indx} src={prompt.content} alt={indx} />
+          return <img key={indx} src={prompt.content} alt={indx} className='question-img'/>
         case 'table':
           if (prompt.content && prompt.content.th && prompt.content.td){ 
             return (

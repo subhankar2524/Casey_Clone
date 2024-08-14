@@ -30,9 +30,9 @@ function App() {
   const handleAns = (ans) => {
     console.log(currentQuestionIndex);
     if (currentQuestionIndex >= QUESTIONS.length) {
-      return; 
+      return;
     }
-    
+
     if (currentQuestionIndex < QUESTIONS.length - 1) {
       setCurrectQuestionIndex(currentQuestionIndex + 1);
     }
@@ -50,7 +50,7 @@ function App() {
   };
 
 
-// currently not needed
+  // currently not needed
   const handleRenderFunction = (childFunction) => {
     setChildRenderFunction(childFunction)
   }
@@ -102,9 +102,9 @@ function App() {
           <>
             <button className='see-options-button' onClick={toggleDrawer(true)}>See Options</button>
 
-            <Drawer open={open}  anchor='bottom'>
-              <div onClick={toggleDrawer(false)} style={{cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', color:'green', width: 'fit-content'}}><ExpandMoreRoundedIcon />Collapse </div>
-              <div className='option-container'  style={{ zIndex: 1000 }}>
+            <Drawer open={open} anchor='bottom'>
+              <div onClick={toggleDrawer(false)} style={{ cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'green', width: 'fit-content' }}><ExpandMoreRoundedIcon />Collapse </div>
+              <div className='option-container' style={{ zIndex: 1000 }}>
                 <div className='option-grid'>
                   {question.options.map((option, indx) => (
                     <div
@@ -117,8 +117,8 @@ function App() {
                   ))}
                 </div>
                 <div className='option-actions'>
+                  <button onClick={() =>  setSelectedOptions([]) } className='option-action-button'>Clear Selection</button>
                   <button onClick={() => { handleAns(selectedOptions); setOpen(false); setSelectedOptions([]) }} className='option-action-button'>Done</button>
-                  <button onClick={() => setOpen(false)} className='option-action-button'>Cancel</button>
                 </div>
               </div>
             </Drawer>
@@ -128,7 +128,7 @@ function App() {
           </>
         );
 
-        
+
       default:
         return null;
     }

@@ -12,4 +12,4 @@ function RoutesPage() {
   )
 }
 
-export default RoutesPage
+export default RoutesPage;
