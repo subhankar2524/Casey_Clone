@@ -22,14 +22,15 @@ export const QUESTIONS = [
         id: 3,
         type: 'mcq',
         prompts: [
-          { type: 'text', content: 'What is your favorite color?' },
+          { type: 'text', content: 'Sample table data for testing' },
+          { type: 'text', content: 'Choose any color from here. . .it is a mcq but a single ans question' },
           { type: 'table', 
             content: { 
               th: ['Jan', 'Feb', 'Mar', 'Aprl', 'May', 'Jun', 'Jul','Aug', 'Sept', 'Oct', 'Nov', 'Dec'], 
-              td: [1,2,3,4,5,6,7,8,9,10,10,10,11,14,15,24, 45,56,12,45,89,56,34,56]
+              td: [[1,2,3,4,5,6,7,8,9,10,10,10],[11,14,15,24, 45,56,12,45,89,56,34,56]]
           } },
         ],
-        options: ['pink', 'violet', 'red', 'green']
+        options: ['pink', 'violet', 'red', 'green', 'blue']
       },
       {
         id: 4,

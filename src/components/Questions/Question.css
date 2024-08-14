@@ -123,6 +123,30 @@
     opacity: 0.5;
 }
 
+/* Custom styles for the table */
+.custom-table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  /* Style for table headers */
+  .custom-table th {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    border: 2px solid #ddd;
+  }
+  
+  /* Style for table cells */
+  .custom-table td {
+    padding: 10px;
+    border: 2px solid #ddd;
+    text-align: left;
+  }
+  
+
 
   
  

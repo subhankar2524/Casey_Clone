@@ -20,9 +20,19 @@ function Question({ question, onAns, answers, sendToParent }) {
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen) => () => {
-    console.log('I am being clicked'); 
-    setIsOptionsOpen(newOpen); 
+    console.log('I am being clicked');
+    setIsOptionsOpen(newOpen);
   };
+
+  // // handle table data format
+  // const renderTable = (tableContent) => {
+  //   const { th, td } = tableContent;
+
+  //   return (
+
+  //   );
+  // };
+
 
 
   // function to handle question prompts
@@ -33,6 +43,29 @@ function Question({ question, onAns, answers, sendToParent }) {
           return (<div className='questions-div'><p key={indx}>{prompt.content}</p></div>)
         case 'image':
           return <img key={indx} src={prompt.content} alt={indx} />
+        case 'table':
+          if (prompt.content && prompt.content.th && prompt.content.td){ 
+            return (
+              <table className="custom-table">
+                <thead>
+                  <tr>
+                    {prompt.content.th.map((header, index) => (
+                      <th key={index}>{header}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {prompt.content.td.map((row, rowIndex) => (
+                    <tr key={rowIndex}>
+                      {row.map((data, colIndex) => (
+                        <td key={colIndex}>{data}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) 
+          }
         default:
           return null;
       }
@@ -179,36 +212,36 @@ function Question({ question, onAns, answers, sendToParent }) {
       case 'mcq-multi':
         return (
           <div className='drawer'>
-        <button onClick={() => toggleDrawer(true)}>See Options</button>
-          
-          <div className='mcq-multi-wrapper' >
-            {question.options.map((option, indx) => (
-              <div
-                key={indx}
-                onClick={() => toggleOption(option)}
-                className={`ans-buttons ${selectedOptions.includes(option) ? 'selected' : ''}`}
+            <button onClick={() => toggleDrawer(true)}>See Options</button>
+
+            <div className='mcq-multi-wrapper' >
+              {question.options.map((option, indx) => (
+                <div
+                  key={indx}
+                  onClick={() => toggleOption(option)}
+                  className={`ans-buttons ${selectedOptions.includes(option) ? 'selected' : ''}`}
+                >
+                  {option}
+                </div>
+              ))}
+              <button
+                className='input-submit-button'
+                onClick={() => { onAns(selectedOptions); setSelectedOptions([]); }}
+                disabled={selectedOptions.length === 0}
               >
-                {option}
-              </div>
-            ))}
-            <button
-              className='input-submit-button'
-              onClick={() => { onAns(selectedOptions); setSelectedOptions([]); }}
-              disabled={selectedOptions.length === 0}
-            >
-              <TelegramIcon
-                sx={{
-                  fontSize: '50px',
-                  cursor: selectedOptions.length > 0 ? 'pointer' : 'not-allowed',
-                  color: selectedOptions.length > 0 ? '#000' : '#ccc',
-                  transition: 'color 0.3s ease',
-                  '&:hover': {
-                    color: selectedOptions.length > 0 ? 'green' : '#ccc'
-                  }
-                }}
-              />
-            </button>
-          </div>
+                <TelegramIcon
+                  sx={{
+                    fontSize: '50px',
+                    cursor: selectedOptions.length > 0 ? 'pointer' : 'not-allowed',
+                    color: selectedOptions.length > 0 ? '#000' : '#ccc',
+                    transition: 'color 0.3s ease',
+                    '&:hover': {
+                      color: selectedOptions.length > 0 ? 'green' : '#ccc'
+                    }
+                  }}
+                />
+              </button>
+            </div>
           </div>
         )
 
