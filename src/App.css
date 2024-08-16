@@ -59,14 +59,17 @@
     margin: 10px 0; /* Margin around the grid */
   }
   .option-container{ 
-    max-height: 88vh;
-    min-height: 88vh;
+    max-height: 80vh;
+    min-height: 80vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 1rem 1rem;
+    padding: 0rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   }
   .see-options-button {
-    font-size: 25px;
+    font-size: 18px;
     background-color: white;
     color: rgb(167, 166, 166);
     border: 1px solid rgb(218, 218, 218);
@@ -99,6 +102,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin-bottom: 3rem;
 }
 .option-action-button{ 
     width: 50%;
@@ -113,4 +117,23 @@
 }
 .option-action-button:hover{ 
     background-color: #c8c8c8;
+}
+
+.drawer-header{ 
+    width: 100%; 
+    position: relative;
+    padding: 1rem 1rem;
+}
+.drawer-header-text{ 
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+}
+.draywer-header-border{ 
+    width: 99%;
+    height: 1px;
+    background-color: rgb(176, 176, 176);
+    margin-top: 1rem;
 }

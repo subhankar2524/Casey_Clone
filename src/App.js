@@ -28,6 +28,7 @@ function App() {
 
   // for handling ans we can change it if we need to check the ans are correct or wrong. . .
   const handleAns = (ans) => {
+
     console.log(currentQuestionIndex);
     if (currentQuestionIndex >= QUESTIONS.length) {
       return;
@@ -37,6 +38,9 @@ function App() {
       setCurrectQuestionIndex(currentQuestionIndex + 1);
     }
 
+    if(Array.isArray(ans).length === 0){ 
+      return; 
+    }
 
     setAnswers([...answers, { question: QUESTIONS[currentQuestionIndex], ans }])
   }
@@ -61,6 +65,8 @@ function App() {
     switch (question.type) {
       case "single-answer":
         return (
+          <div className=''style={{width: '100%'}}>
+            <div style={{color: 'rgb(0, 80, 0)', fontWeight: '700', fontSize: '20px', marginBottom: '1rem', backgroundColor: 'white'}}>Accept ALL texts and numbers. &nbsp;pressing "Enter" DOES NOT submit answer.</div>
           <div className='input-section-wrapper show'>
             <textarea
               className='single-ans-input'
@@ -90,6 +96,7 @@ function App() {
               />
             </button>
           </div>
+          </div>
         )
       case "mcq":
         return question.options.map((option, indx) => (
@@ -103,7 +110,11 @@ function App() {
             <button className='see-options-button' onClick={toggleDrawer(true)}>See Options</button>
 
             <Drawer open={open} anchor='bottom'>
-              <div onClick={toggleDrawer(false)} style={{ cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'green', width: 'fit-content' }}><ExpandMoreRoundedIcon />Collapse </div>
+              <div className='drawer-header'>
+                <div onClick={toggleDrawer(false)} style={{ cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'green', width: 'fit-content' }}><ExpandMoreRoundedIcon />Collapse </div>
+                <div className='drawer-header-text'>Which Data Should the team gather for this purpose ?</div>
+                <div className='draywer-header-border'></div>
+              </div>
               <div className='option-container' style={{ zIndex: 1000 }}>
                 <div className='option-grid'>
                   {question.options.map((option, indx) => (
@@ -117,7 +128,7 @@ function App() {
                   ))}
                 </div>
                 <div className='option-actions'>
-                  <button onClick={() =>  setSelectedOptions([]) } className='option-action-button'>Clear Selection</button>
+                  <button onClick={() => setSelectedOptions([])} className='option-action-button'>Clear Selection</button>
                   <button onClick={() => { handleAns(selectedOptions); setOpen(false); setSelectedOptions([]) }} className='option-action-button'>Done</button>
                 </div>
               </div>
