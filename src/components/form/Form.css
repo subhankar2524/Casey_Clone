@@ -1,0 +1,77 @@
+.form-wrapper{
+    height: 100vh;
+    /* border: 5px solid red; */
+    overflow-y: auto;
+    /* width: 100%; */
+}
+.form-main{
+    padding: 10px;
+    position: relative;
+}
+.form-titles{
+    position: relative;
+    font-size: 25px;
+    font-weight: bold;
+    color: green;
+    padding-top: 15px;
+}
+.input-field {
+    border: 2px solid green;
+    border-radius: 6px;
+    padding: 10px;
+    min-width: 410px;
+    width: 50%;
+    resize: vertical;
+    overflow: hidden; /* Ensure content doesn’t overflow */
+    min-height: 50px; /* Set a minimum height */
+}
+.button{
+    padding: 15px;
+    margin: 10px 10px 10px 0px;
+    border: 2px solid rgb(200, 200, 200);
+    border-radius: 6px;
+    background-color: rgb(200, 200, 200);
+    color: grey;
+    width: 200px;
+    font-weight: bold;
+}
+.active{
+    border: 2px solid green;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+.images {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.image-container {
+    position: relative;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.images img {
+    width: 200px;
+    height: auto;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.image-container:hover .delete-icon {
+    display: block;
+}
