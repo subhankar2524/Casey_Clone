@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Form from './components/form/Form';
 
 function WebForm() {
+  
   return (
-    <div>WebForm here</div>
-  )
+    <Form />
+  );
 }
 
-export default WebForm
+export default WebForm;
