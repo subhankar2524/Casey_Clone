@@ -26,7 +26,8 @@
 
 .single-ans-input {
     width: 95%;
-    height: 65px; 
+    min-height: 65px; 
+    height: fit-content;
     padding: 1rem 1rem;
     font-size: 18px;
     resize: none;
