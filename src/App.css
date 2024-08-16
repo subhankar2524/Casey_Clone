@@ -22,17 +22,31 @@
 
 }
 .app-itesm-ans{ 
+    width: 97.6%;
     position: sticky;
     bottom: 0;
-    height: 70px;
-    padding: 1rem 1rem;
+    height: fit-content; 
+    padding: 0.5rem 1rem;
     box-sizing: content-box;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     background-color: white;
     z-index: 100;
+   
     /* box-shadow: 0px -2px 5px 0px #888888; */
+}
+.show-mcq-option{ 
+    width: fit-content;
+    max-width: 100%;
+    display: flex;
+    white-space: nowrap;
+    overflow: auto;
+    /* justify-content: center; */
+}
+
+.show-mcq-option::-webkit-scrollbar{ 
+
 }
 
 .hor-border{ 
@@ -69,8 +83,8 @@
     flex-direction: column;
   }
   .see-options-button {
-    font-size: 18px;
-    background-color: white;
+    font-size: 15px;
+    background-color: #D7D7D7;
     color: rgb(167, 166, 166);
     border: 1px solid rgb(218, 218, 218);
     padding: 10px;
@@ -102,6 +116,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin-top: 3rem;
     margin-bottom: 3rem;
 }
 .option-action-button{ 
@@ -136,4 +151,20 @@
     height: 1px;
     background-color: rgb(176, 176, 176);
     margin-top: 1rem;
+}
+
+
+
+
+.option-container::-webkit-scrollbar {
+     width: 15px;
+}
+
+.option-container::-webkit-scrollbar-track {
+    background-color: rgb(128, 128, 128); /* The background of the track */
+}
+
+.option-container::-webkit-scrollbar-thumb {
+    background-color: #474747; /* The color of the scrollbar thumb */
+     
 }

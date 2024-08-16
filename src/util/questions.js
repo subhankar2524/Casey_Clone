@@ -55,15 +55,8 @@ Faucibus ultricies hac etiam venenatis morbi a taciti phasellus. Eget parturient
 
 
 Potenti praesent feugiat accumsan faucibus commodo congue. Convallis viverra ultricies fames parturient; bibendum tincidunt pretium sem felis. Adipiscing ante facilisis habitant turpis condimentum. Non mattis pellentesque pharetra vulputate massa placerat. Justo tristique inceptos leo dui mi lobortis inceptos. Fringilla enim nisl turpis ridiculus rhoncus leo arcu feugiat posuere. Et praesent mauris mauris mus euismod maximus dignissim.` },
-      {
-        type: 'table',
-        content: {
-          th: ['Jan', 'Feb', 'Mar', 'Aprl', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-          td: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10], [11, 14, 15, 24, 45, 56, 12, 45, 89, 56, 34, 56]]
-        }
-      },
     ],
-    options: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    options: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December','January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   },
   {
     id: 5,
@@ -83,6 +76,23 @@ Potenti praesent feugiat accumsan faucibus commodo congue. Convallis viverra ult
   },
   {
     id: 6,
+    type: 'mcq',
+    prompts: [
+      {
+        type: 'text', content: `Lorem ipsum odor amet, consectetuer adipiscing elit. Dui malesuada efficitur hac eget egestas bibendum class. Sociosqu pretium duis turpis eleifend ultrices dolor feugiat. Cubilia nascetur vitae amet placerat rutrum nostra. Scelerisque curae sit parturient cubilia auctor volutpat. Id maximus sem nisl curae nulla laoreet torquent nullam pellentesque. Dignissim suscipit sodales iaculis non praesent. Potenti platea cubilia senectus commodo hendrerit vivamus sociosqu.
+
+Mollis elit justo molestie; auctor rutrum porta vitae. Rhoncus metus porta posuere luctus iaculis fermentum. Ut luctus taciti scelerisque nec pharetra eu; amet convallis curae. Sociosqu faucibus nisi est amet rutrum cursus cubilia nostra auctor. Nullam litora volutpat ex malesuada magnis malesuada. Velit massa massa senectus montes dapibus vestibulum. Sed lorem ac semper dapibus ac lacinia penatibus.
+
+
+Faucibus ultricies hac etiam venenatis morbi a taciti phasellus. Eget parturient nec nunc viverra; taciti tincidunt dictumst blandit. Odio vivamus finibus metus condimentum duis conubia semper platea pretium. Tincidunt dolor mattis penatibus erat porta ornare sollicitudin. Eu potenti nibh fringilla augue; dignissim aptent. Convallis ipsum non euismod, rhoncus ligula quam. Primis commodo pharetra nunc; egestas morbi sagittis.
+
+
+Potenti praesent feugiat accumsan faucibus commodo congue. Convallis viverra ultricies fames parturient; bibendum tincidunt pretium sem felis. Adipiscing ante facilisis habitant turpis condimentum. Non mattis pellentesque pharetra vulputate massa placerat. Justo tristique inceptos leo dui mi lobortis inceptos. Fringilla enim nisl turpis ridiculus rhoncus leo arcu feugiat posuere. Et praesent mauris mauris mus euismod maximus dignissim.` },
+    ],
+    options: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  },
+  {
+    id: 7,
     type: 'end',
     prompts: [
       { type: 'text', content: 'Thank you for taking the survey' },

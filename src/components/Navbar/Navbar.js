@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import "./Navbar.css";
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'; // Import PlayArrowIcon
+import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline'; 
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'; 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function Navbar() {
@@ -77,7 +77,7 @@ function Navbar() {
       <span className='progress-time'>{formatTime(time)}</span>
       <div className='nav-icons'>
         <span className='pause-icon' onClick={togglePause}>
-          {isPaused ? <PlayArrowIcon /> : <PauseCircleOutlineIcon />} {/* Render PlayArrowIcon when paused */}
+          {isPaused ? <PlayCircleOutlineIcon /> : <PauseCircleOutlineIcon />} {/* Render PlayArrowIcon when paused */}
         </span>
         <span className='reset-icon' onClick={handleReset}><RestartAltIcon /></span>
       </div>

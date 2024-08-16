@@ -298,6 +298,7 @@ function Question({ question, onAns, answers, sendToParent}) {
 
       ))}
       {renderQuestions(question)}
+      <br/>
       {/* <div className='ans-wrapper'>
         {renderInputs()}
       </div> */}

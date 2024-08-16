@@ -38,8 +38,8 @@ function App() {
       setCurrectQuestionIndex(currentQuestionIndex + 1);
     }
 
-    if(Array.isArray(ans).length === 0){ 
-      return; 
+    if (Array.isArray(ans).length === 0) {
+      return;
     }
 
     setAnswers([...answers, { question: QUESTIONS[currentQuestionIndex], ans }])
@@ -65,49 +65,54 @@ function App() {
     switch (question.type) {
       case "single-answer":
         return (
-          <div className=''style={{width: '100%'}}>
-            <div style={{color: 'rgb(0, 80, 0)', fontWeight: '700', fontSize: '20px', marginBottom: '1rem', backgroundColor: 'white'}}>Accept ALL texts and numbers. &nbsp;pressing "Enter" DOES NOT submit answer.</div>
-          <div className='input-section-wrapper show'>
-            <textarea
-              className='single-ans-input'
-              placeholder='Type your ans...'
-              rows='1'
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <button className='input-submit-button'>
-              <TelegramIcon
-                sx={{
-                  fontSize: '50px',
-                  cursor: inputValue.trim() ? 'pointer' : 'not-allowed',
-                  color: inputValue.trim() ? '#000' : '#ccc',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    color: inputValue.trim() ? 'green' : '#ccc'
-                  }
-                }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (inputValue.trim()) {
-                    handleAns(inputValue);
-                    setInputValue('');
-                  }
-                }}
+          <div className='' style={{ width: '100%' }}>
+            <div style={{ color: 'rgb(0, 80, 0)', fontWeight: '700', fontSize: '20px', marginBottom: '0.5rem', backgroundColor: 'white' }}>Accept ALL texts and numbers. &nbsp;pressing "Enter" DOES NOT submit answer.</div>
+            <div className='input-section-wrapper show'>
+              <textarea
+                className='single-ans-input'
+                placeholder='Type your ans...'
+                rows='1'
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
               />
-            </button>
-          </div>
+              <button className='input-submit-button'>
+                <TelegramIcon
+                  sx={{
+                    fontSize: '50px',
+                    cursor: inputValue.trim() ? 'pointer' : 'not-allowed',
+                    color: inputValue.trim() ? '#65e2b0' : '#ACCABE',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      color: inputValue.trim() ? 'green' : '#ACCABE'
+                    }
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (inputValue.trim()) {
+                      handleAns(inputValue);
+                      setInputValue('');
+                    }
+                  }}
+                />
+              </button>
+            </div>
           </div>
         )
       case "mcq":
-        return question.options.map((option, indx) => (
-          <div className='show' key={indx}>
-            <div onClick={() => handleAns(option)} className='ans-buttons'>{option}</div>
+        return (
+          <div className='show-mcq-option'>
+
+            {question.options.map((option, indx) => (
+              <div onClick={() => handleAns(option)} className='ans-buttons'  key={indx}>{option}</div>
+            ))
+            }
           </div>
-        ));
+        )
+
       case 'mcq-multi':
         return (
           <>
-            <button className='see-options-button' onClick={toggleDrawer(true)}>See Options</button>
+            <button className='see-options-button' onClick={toggleDrawer(true)}>See options</button>
 
             <Drawer open={open} anchor='bottom'>
               <div className='drawer-header'>
