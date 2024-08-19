@@ -75,3 +75,63 @@
 .image-container:hover .delete-icon {
     display: block;
 }
+
+.slider {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 100%; 
+    height: 12px; /* Increase the height to accommodate the thumb */
+    background: transparent; /* Light gray background */
+    outline: none; 
+    border-radius: 6px; /* Rounded edges */
+    margin-right: 10px;
+    padding: 0; /* Remove padding if any */
+    position: relative; /* Ensure relative positioning */
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; 
+    height: 20px; 
+    background: white; 
+    cursor: pointer;
+    border-radius: 50%;
+    /* border: 2px solid black;  */
+    transition: background 0.3s ease;
+    z-index: 3;
+    position: relative; /* Relative positioning */
+    top: -6px; /* Align the thumb to the center */
+    box-shadow: 0px 1px 5px green;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+    top: -6px; /* Align the thumb to the center */
+    /* border: none; */
+  }
+  
+  .slider::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #b3ffb3 20%, #66ff66 20%, #66ff66 40%, #00cc00 40%, #00cc00 60%, #009900 60%, #009900 80%, #004d00 80%, #004d00 100%);
+    height: 8px; /* Adjust to match thumb height */
+    border-radius: 6px;
+  }
+  
+  .slider::-moz-range-track {
+    background: linear-gradient(to right, #b3ffb3 20%, #66ff66 20%, #66ff66 40%, #00cc00 40%, #00cc00 60%, #009900 60%, #009900 80%, #004d00 80%, #004d00 100%);
+    height: 8px; /* Adjust to match thumb height */
+    border-radius: 6px;
+  }
+  
+  .slider::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  

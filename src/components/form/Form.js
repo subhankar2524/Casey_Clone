@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Form.css';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ToggleButton from './ToggleButton';
-
 
 function Form() {
   const [promptText, setPromptText] = useState('');
@@ -11,6 +10,13 @@ function Form() {
   const [responseType, setResponseType] = useState('text');
   const [options, setOptions] = useState([{ text: '', weightage: 0 }]);
   const [showTextField, setShowTextField] = useState(false);
+  const [isDoneDisabled, setIsDoneDisabled] = useState(true);
+
+  useEffect(() => {
+    // Check if any option's weightage is 0
+    const hasZeroWeightage = options.some(option => option.weightage === 0);
+    setIsDoneDisabled(hasZeroWeightage);
+  }, [options]);
 
   const handleTextareaChange = (event) => {
     setPromptText(event.target.value);
@@ -151,7 +157,7 @@ function Form() {
               </div>
             ))}
             <button type="button" className='button' onClick={addOption}>Add Option</button>
-            <button type="button" className='button active' onClick={addOption}>Done</button>
+            <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button>
           </div>
         )}
         {responseType === 'MCQM' && (
@@ -199,7 +205,7 @@ function Form() {
               )}
               <br/>
             <button type="button" className='button' onClick={addOption}>Add Option</button>
-            <button type="button" className='button active' onClick={addOption}>Done</button>
+            <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button>
           </div>
         )}
         
