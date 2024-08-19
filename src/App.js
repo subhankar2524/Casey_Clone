@@ -71,7 +71,7 @@ function App() {
               <textarea
                 className='single-ans-input'
                 placeholder='Type your ans...'
-                rows='1'
+                // rows='1'
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
               />
@@ -103,7 +103,7 @@ function App() {
           <div className='show-mcq-option'>
 
             {question.options.map((option, indx) => (
-              <div onClick={() => handleAns(option)} className='ans-buttons'  key={indx}>{option}</div>
+              <div onClick={() => handleAns(option)} className='ans-buttons' key={indx}>{option}</div>
             ))
             }
           </div>
