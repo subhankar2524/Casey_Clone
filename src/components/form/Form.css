@@ -34,6 +34,7 @@
     color: grey;
     width: 200px;
     font-weight: bold;
+    cursor: pointer;
 }
 .active{
     border: 2px solid green;

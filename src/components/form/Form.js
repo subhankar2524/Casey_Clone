@@ -11,6 +11,38 @@ function Form() {
   const [options, setOptions] = useState([{ text: '', weightage: 0 }]);
   const [showTextField, setShowTextField] = useState(false);
   const [isDoneDisabled, setIsDoneDisabled] = useState(true);
+  const [formData, setFormData] = useState({});
+
+  const handleSave = (event) => {
+    event.preventDefault();
+    const newFormData = {
+      caseName: document.querySelector('.form-main input[type="text"]').value, // Extract case name
+      promptText,
+      images: images.map(image => ({ src: image.src, title: image.title })), // Map image data
+      responseType,
+      options,
+      // Add critical text if applicable
+      criticalText: showTextField ? document.querySelector('.form-main input[type="text"][placeholder="Enter critical text"]').value : '',
+    };
+    setFormData(newFormData);
+    console.log('Form Data:', newFormData); // Print form data to console
+
+    // Make API call (replace with your actual endpoint)
+//     fetch('/api/save-form', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(newFormData)
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//       console.log('API   
+//  r  esponse:', data); // Handle success or error messages
+//     })
+//     .catch(error => {
+//       console.error('Error saving data:', error); // Handle errors
+//     });
+  };
+
 
   useEffect(() => {
     // Check if any option's weightage is 0
@@ -157,7 +189,7 @@ function Form() {
               </div>
             ))}
             <button type="button" className='button' onClick={addOption}>Add Option</button>
-            <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button>
+            {/* <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button> */}
           </div>
         )}
         {responseType === 'MCQM' && (
@@ -205,12 +237,13 @@ function Form() {
               )}
               <br/>
             <button type="button" className='button' onClick={addOption}>Add Option</button>
-            <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button>
+            {/* <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button> */}
           </div>
         )}
         
-        <button className='button'>Next Prompt</button>
-        <button className='button active'>Save</button>
+        <button className='button'>Previous Prompt</button>
+        <button className='button'>Next Prompt</button> <br/>
+        <button className='button active' onClick={handleSave}>Save</button>
       </form>
     </div>
   );
