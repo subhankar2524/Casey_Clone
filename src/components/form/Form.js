@@ -189,7 +189,7 @@ function Form() {
               </div>
             ))}
             <button type="button" className='button' onClick={addOption}>Add Option</button>
-            <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button>
+            {/* <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button> */}
           </div>
         )}
         {responseType === 'MCQM' && (
@@ -237,11 +237,12 @@ function Form() {
               )}
               <br/>
             <button type="button" className='button' onClick={addOption}>Add Option</button>
-            <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button>
+            {/* <button type="button" className='button active'  disabled={isDoneDisabled}>Done</button> */}
           </div>
         )}
         
-        <button className='button'>Next Prompt</button>
+        <button className='button'>Previous Prompt</button>
+        <button className='button'>Next Prompt</button> <br/>
         <button className='button active' onClick={handleSave}>Save</button>
       </form>
     </div>
